@@ -6,7 +6,7 @@ public class CarroTeste {
 
         Carro civic = new Civic();
 
-        Carro ferrari = new Ferrari();
+        Carro ferrari = new Ferrari(400);
 
         civic.acelerar();
         System.out.println(civic);
