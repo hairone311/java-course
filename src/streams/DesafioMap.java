@@ -8,8 +8,6 @@ import java.util.function.UnaryOperator;
 public class DesafioMap {
     
     public static void main(String[] args) {
-        
-        // Consumer<String> print = System.out::println;
 
         List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
@@ -18,20 +16,17 @@ public class DesafioMap {
          * 2. Inverter a string... "110" => "011"
          * 3. Converter de volta para inteiro... "011 => 3
          */
-        
-        Function<Integer, String> integerToBinaryString = 
-            num -> Integer.toBinaryString(num);
 
-        UnaryOperator<String> reverseString = 
+        UnaryOperator<String> inverter = 
             value -> new StringBuilder(value).reverse().toString();
 
-        Function<String, Integer> stringToInteger = 
+        Function<String, Integer> binaryToInteger = 
             value -> Integer.parseInt(value, 2);
 
         nums.stream()
-            .map(integerToBinaryString)
-            .map(reverseString)
-            .map(stringToInteger)
+            .map(Integer::toBinaryString)
+            .map(inverter)
+            .map(binaryToInteger)
             .forEach(System.out::println);
     }
 }
